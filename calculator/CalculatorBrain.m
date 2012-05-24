@@ -76,7 +76,9 @@
     }else if ([@"cos" isEqualToString:operation]) {
         result = cos([self popOperand]);
     }
-        
+    
+    [self pushOperand:result];
+    
     return result;
     
 }
