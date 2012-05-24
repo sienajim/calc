@@ -7,6 +7,7 @@
 //
 
 #import "CalculatorBrain.h"
+#import "math.h"
 
 @interface CalculatorBrain()
 
@@ -40,6 +41,7 @@
 {
     NSNumber *operandObject = [self.operandStack lastObject];
     if (operandObject) [ self.operandStack removeLastObject];
+
     return [operandObject doubleValue];
 }
 
@@ -62,6 +64,16 @@
         first = [self popOperand ];
         second = [self popOperand ];
         result = second / first;
+    } else if ([@"sqrt" isEqualToString:operation]) {
+        result = sqrt([self popOperand]);
+    }else if ([@"π" isEqualToString:operation]) {
+        result = M_PI ;
+    }else if ([@"sin" isEqualToString:operation]) {
+        result = sin([self popOperand]);
+    }else if ([@"e" isEqualToString:operation]) {
+        result = M_E ;
+    }else if ([@"cos" isEqualToString:operation]) {
+        result = cos([self popOperand]);
     }
         
     return result;

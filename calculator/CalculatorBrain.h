@@ -2,7 +2,7 @@
 //  CalculatorBrain.h
 //  calculator
 //
-//  Created by Jim Mahoney on 5/18/12.
+//  Created by Jim/Users/jmahoney/develop/Calculator/calculator/calculator/CalculatorBrain.m Mahoney on 5/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
