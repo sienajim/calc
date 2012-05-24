@@ -46,12 +46,22 @@
 - (double) performOperation:(NSString *)operation
 {
     double result = 0;
+    double first = 0;
+    double second = 0;
     // calculate result
     if ([operation isEqualToString:@"+"]) {
         result = [self popOperand] + [ self popOperand];
     
     } else if ([@"*" isEqualToString:operation]) {
         result = [self popOperand ] * [self popOperand];
+    } else if ([@"-" isEqualToString:operation]) {
+        first = [self popOperand ];
+        second = [self popOperand ];
+        result = second - first;
+    } else if ([@"/" isEqualToString:operation]) {
+        first = [self popOperand ];
+        second = [self popOperand ];
+        result = second / first;
     }
         
     return result;

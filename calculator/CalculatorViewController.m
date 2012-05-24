@@ -39,11 +39,28 @@
    // NSString *newText = [currentText stringByAppending:digit] ;
    // myDisplay.text = newText;
     //[myDisplay setText:newText];
-    self.display.text = [self.display.text stringByAppendingString:digit];
- } else {
+     if ([digit isEqualToString:@"."]) 
+     {
+       //  NSLog(@"Decimal %@",digit);
+       NSRange range = [self.display.text rangeOfString:@"."]; 
+         if (range.location == NSNotFound)
+         {
+             // NSLog(@"Decimal add");
+             self.display.text = [self.display.text stringByAppendingString:digit];
+         } else {
+             self.userIsInTheMiddleOfEnteringANumber = YES;
+         }
+
+     } else { // other digit
+        //  NSLog(@"Decimal not %@",digit);
+         self.display.text = [self.display.text stringByAppendingString:digit];
+     }
+ }
+ else {
      self.display.text = digit;
      self.userIsInTheMiddleOfEnteringANumber = YES;
- }
+ 
+     }
 }
 
 - (IBAction)enterPressed {
