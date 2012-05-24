@@ -67,6 +67,7 @@
     } else if ([@"sqrt" isEqualToString:operation]) {
         result = sqrt([self popOperand]);
     }else if ([@"π" isEqualToString:operation]) {
+        [self pushOperand:M_PI];
         result = M_PI ;
     }else if ([@"sin" isEqualToString:operation]) {
         result = sin([self popOperand]);

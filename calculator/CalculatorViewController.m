@@ -8,7 +8,7 @@
 
 #import "CalculatorViewController.h"
 #import "CalculatorBrain.h"
-#import "math.h"
+//#import "math.h"
 
 @interface CalculatorViewController()
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
@@ -74,11 +74,11 @@
 {
     if (self.userIsInTheMiddleOfEnteringANumber) [self enterPressed];
     
-    if ([sender.currentTitle isEqualToString:@"π"])
-    {
+  //  if ([sender.currentTitle isEqualToString:@"π"])
+  //  {
        // [self enterPressed];
-        [self.brain pushOperand:M_PI];
-    }
+   //     [self.brain pushOperand:M_PI];
+   // }
     
     double result = [self.brain performOperation: sender.currentTitle];
     
