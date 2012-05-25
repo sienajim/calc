@@ -19,6 +19,7 @@
 
 @implementation CalculatorViewController
 @synthesize display = _display;
+@synthesize operationList = _operationList;
 @synthesize userIsInTheMiddleOfEnteringANumber = _userIsInTheMiddleOfEnteringANumber;
 @synthesize brain = _brain;
 
@@ -63,10 +64,16 @@
  
      }
 }
+- (IBAction)clearPressed {
+    self.display.text = @"";
+    self.operationList.text = @"";
+    [self.brain  clearStack];
+}
 
 - (IBAction)enterPressed {
     [self.brain pushOperand:[self.display.text doubleValue]];
     self.userIsInTheMiddleOfEnteringANumber = NO;
+    self.operationList.text = [[self.operationList.text stringByAppendingString:@" "] stringByAppendingString:self.display.text ] ;
 }
 
 
@@ -84,6 +91,7 @@
     
     NSString *resultString = [NSString stringWithFormat:@"%g", result];
     self.display.text = resultString;
+     self.operationList.text = [[self.operationList.text stringByAppendingString:@" "] stringByAppendingString:sender.currentTitle ];
     
 }
 
@@ -92,4 +100,8 @@
 //    self.userIsInTheMiddleOfEnteringANumber = NO;
 //}
 
+- (void)viewDidUnload {
+    [self setOperationList:nil];
+    [super viewDidUnload];
+}
 @end

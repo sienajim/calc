@@ -29,6 +29,10 @@
 //    _operandStack = operandStack;
 //}
 
+- (void) clearStack
+{
+    [self.operandStack removeAllObjects];
+}
 
 - (void) pushOperand:(double)operand
 {
